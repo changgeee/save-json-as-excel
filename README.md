@@ -16,8 +16,8 @@
         age: '年龄'
       }
   var csvhearder=['name','age']
-  JSONTOEXCEL.exportXLS(data, 'test.xls', header)
-  JSONTOEXCEL.exportCSV(data, 'test.csv')
+  JSONTOEXCEL.exportXLS(data, 'test.xls', xlsheader)
+  JSONTOEXCEL.exportCSV(data, 'test.csv'，csvhearder)
 ```
 
  
