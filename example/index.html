@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSONTOEXCEL</title>
+</head>
+
+<body>
+  <button id="downloadXLS">downloadXLS</button>
+  <button id="downloadCSV">downloadCSV</button>
+  <script src="../src/jsonToExcel.js"></script>
+  <script>
+    var downloadXLS = document.querySelector('#downloadXLS'),
+      downloadCSV = document.querySelector('#downloadCSV'),
+      data = [{ name: 'nico', age: '18' }, {
+        name: 'changge', age: '20'
+      }],
+      header = {
+        name: '姓名',
+        age: '年龄'
+      }
+    downloadXLS.addEventListener('click', function () {
+      JSONTOEXCEL.exportXLS(data, 'test.xls', header)
+    })
+    downloadCSV.addEventListener('click', function () {
+      JSONTOEXCEL.exportCSV(data, 'test.csv')
+    })
+  </script>
+</body>
+
+</html>
