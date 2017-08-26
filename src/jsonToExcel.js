@@ -2,42 +2,45 @@
  * @Author: changge
  * @Date: 2017-08-15 11:07:05
  * @Last Modified by: changge
- * @Last Modified time: 2017-08-16 18:21:42
+ * @Last Modified time: 2017-08-26 20:49:40
  */
 (function (global) {
   'use strict';
   var JSONTOEXCEL = (function () {
-    var xlsTemp = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=ProgId content=Excel.Sheet> <meta name=Generator content="Microsoft Excel 11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>${table}</table></body></html>'
-    var jsonToXLS = function (data, header) {
-      console.log(data, header)
-      var xlsData = '', keys = []
-      if (header) {
-        xlsData += '<thead>'
-        for (var key in header) {
-          keys.push(key)
-          xlsData += '<th>' + header[key] + '</th>'
-        }
-        xlsData += '</thead>'
-        xlsData += '<tbody>'
-        data.map(function (item, index) {
-          xlsData += '<tr>'
-          for (var i = 0; i < keys.length; i++) {
-            xlsData += '<td>' + item[keys[i]] + '</td>'
+    var jsonToXLS = (function () {
+      var xlsTemp = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta name=ProgId content=Excel.Sheet> <meta name=Generator content="Microsoft Excel 11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>${table}</table></body></html>'
+      return function (data, header) {
+        var xlsData = '', keys = []
+        if (header) {
+          xlsData += '<thead>'
+          for (var key in header) {
+            keys.push(key)
+            xlsData += '<th>' + header[key] + '</th>'
           }
-          xlsData += '</tr>'
+          xlsData += '</thead>'
+          xlsData += '<tbody>'
+          data.map(function (item, index) {
+            xlsData += '<tr>'
+            for (var i = 0; i < keys.length; i++) {
+              xlsData += '<td>' + item[keys[i]] + '</td>'
+            }
+            xlsData += '</tr>'
+          })
+          xlsData += '</tbody>'
+          return xlsTemp.replace('${table}', xlsData)
+        }
+        data.map(function (item, index) {
+          xlsData += '<tbody><tr>'
+          for (var key in item) {
+            xlsData += '<td>' + item[key] + '</td>'
+          }
+          xlsData += '</tr></tbody>'
         })
-        xlsData += '</tbody>'
         return xlsTemp.replace('${table}', xlsData)
       }
-      data.map(function (item, index) {
-        xlsData += '<tbody><tr>'
-        for (var key in item) {
-          xlsData += '<td>' + item[key] + '</td>'
-        }
-        xlsData += '</tr></tbody>'
-      })
-      return xlsTemp.replace('${table}', xlsData)
-    }
+    })()
+
+
     var jsonToCSV = function (data, keys) {
       var csvData = ''
       if (keys) {
@@ -64,12 +67,10 @@
     }
     var exportXLS = function (data, fileName, header) {
       var XLSData = 'data:application/vnd.ms-excel;base64,' + base64(jsonToXLS(data, header))
-      console.log(jsonToXLS(data, header))
       download(XLSData, fileName)
     }
     var exportCSV = function (data, fileName, keys) {
       var CSVData = 'data:application/csv;base64,' + base64(jsonToCSV(data, keys))
-      console.log(CSVData)
       download(CSVData, fileName)
     }
 
