@@ -1,23 +1,45 @@
 # JSONTOEXCEL
 > ## 使用说明
-+ ### 提供exportXLS(data:array,[fileName:string,header:object])和exportCSV(data:array,[fileName:string,header:array])两个方法；
-+ ##### exportXLS中header参数用于指定表头和需要生成到excel中的字段,缺省时无表头，遍历添加每条数据中所有字段;
-+ ##### exportCSV中header参数用于指定生成到excel中字段，缺省时遍历添加每天数据中所有字段;
-+ ### example
++ 用于浏览器端将json格式数据转换为 伪xls/csv 格式文件导出；
 
+> ## API
+
++ JSONTOEXCEL.exportXLS(dataSource:Array<any>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
+
++ JSONTOEXCEL.exportCSV(dataSource:Array<any>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
+
+
+> example
 ```javascript
-  var data = [{
-          name: 'nico', age: '18' 
-        }, {
-          name: 'changge', age: '20'
+  var dataSource = [{
+        name: '胡彦斌',
+        age: 32,
+        address: '西湖区湖底公园1号'
+      }, {
+        name: '胡彦祖',
+        age: 42,
+        address: '西湖区湖底公园1号'
+      }],
+
+      columns = columns = [{
+        title: '姓名',
+        dataIndex: 'name'
+      }, {
+        title: '年龄',
+        dataIndex: 'age',
+      }, {
+        title: '住址',
+        dataIndex: 'address'
+      }, {
+        title: '出生年份',
+        computed: function (item) {
+          return 2017 - item.age
+        }
       }]
-  var xlsheader = {
-        name: '姓名',
-        age: '年龄'
-      }
-  var csvhearder=['name','age']
-  JSONTOEXCEL.exportXLS(data, 'test.xls', xlsheader)
-  JSONTOEXCEL.exportCSV(data, 'test.csv'，csvhearder)
+
+  JSONTOEXCEL.exportXLS(dataSource, columns, 'test.xls')
+
+  JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
 ```
 
  
