@@ -15,20 +15,37 @@
   <script>
     var downloadXLS = document.querySelector('#downloadXLS'),
       downloadCSV = document.querySelector('#downloadCSV'),
-      data = [{ name: 'nico', age: '18' }, {
-        name: 'changge', age: '20'
+      dataSource = [{
+        name: '胡彦斌',
+        age: 32,
+        address: '西湖区湖底公园1号'
+      }, {
+        name: '胡彦祖',
+        age: 42,
+        address: '西湖区湖底公园1号'
       }],
-      header = {
-        name: '姓名',
-        age: '年龄'
-      }
+
+      columns = columns = [{
+        title: '姓名',
+        dataIndex: 'name'
+      }, {
+        title: '年龄',
+        dataIndex: 'age',
+      }, {
+        title: '住址',
+        dataIndex: 'address'
+      }, {
+        title: '出生年份',
+        computed: function (item) {
+          return 2017 - item.age
+        }
+      }]
     downloadXLS.addEventListener('click', function () {
-      JSONTOEXCEL.exportXLS(data, 'test.xls', header)
+      JSONTOEXCEL.exportXLS(dataSource, columns, 'test.xls')
     })
     downloadCSV.addEventListener('click', function () {
-      JSONTOEXCEL.exportCSV(data, 'test.csv')
+      JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
     })
   </script>
 </body>
-
 </html>
