@@ -42,4 +42,8 @@
   JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
 ```
 
- 
+> ## change log
+
++ v 0.1.0
+  + feature 支持计算属性 computed；
+  + update api优化；
