@@ -9,7 +9,7 @@
 + JSONTOEXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
 
 
-> example
+> ## example
 ```javascript
   var dataSource = [{
         name: '胡彦斌',
