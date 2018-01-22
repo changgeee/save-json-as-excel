@@ -4,9 +4,9 @@
 
 > ## API
 
-+ JSONTOEXCEL.exportXLS(dataSource:Array<any>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
++ JSONTOEXCEL.exportXLS(dataSource:Array\<any\>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
 
-+ JSONTOEXCEL.exportCSV(dataSource:Array<any>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
++ JSONTOEXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
 
 
 > example
