@@ -1,20 +1,20 @@
 {
   "name": "json2excel",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/jsonToExcel.min.js",
+  "description": "json to excel and download",
+  "main": "dist/json2excel.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sangruo/jsonToExcel.git"
+    "url": "git+https://github.com/changgeee/json2excel.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sangruo/jsonToExcel/issues"
+    "url": "https://github.com/changgeee/json2excel/issues"
   },
-  "homepage": "https://github.com/sangruo/jsonToExcel#readme"
+  "homepage": "https://github.com/changgeee/json2excel#readme"
 }
