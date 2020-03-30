@@ -1,12 +1,12 @@
-# JSONTOEXCEL
+# JSON2EXCEL
 > ## 使用说明
 + 用于浏览器端将json格式数据转换为 伪xls/csv 格式文件导出；
 
 > ## API
 
-+ JSONTOEXCEL.exportXLS(dataSource:Array\<any\>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
++ JSON2EXCEL.exportXLS(dataSource:Array\<any\>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
 
-+ JSONTOEXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
++ JSON2EXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
 
 
 > ## example
