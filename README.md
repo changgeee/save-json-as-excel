@@ -1,14 +1,16 @@
 # save-json-as-excel
 
-> save json as xls or csv in browser , and download . (在浏览器端将 json 转成 xls/csv 并下载)
++ save json as xls or csv in browser , and download . (在浏览器端将 json 转成 xls/csv 并下载)
++ 如果浏览器支持 `navigator.msSaveBlob` 或 `URL.createObjectURL` ,将构造一个 Blob 并下载，否则将下载Base64编码数据
 
-#### install
+
+#### Install
 
 ```sh
   npm install save-json-as-excel --save
 ```
 
-#### example
+#### Usage
 
 ```javascript
 var dataSource = [
@@ -46,4 +48,9 @@ var dataSource = [
 
 saveJsonAsExcel.saveAsXls(dataSource, columns, 'test.xls');
 saveJsonAsExcel.saveAsCsv(dataSource, columns, 'test.csv');
+
 ```
+
+#### License
+
++ save-json-as-excel is MIT licensed.

@@ -1,6 +1,6 @@
 {
   "name": "save-json-as-excel",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "json to excel and download",
   "main": "dist/save-json-as-excel.min.js",
   "scripts": {
