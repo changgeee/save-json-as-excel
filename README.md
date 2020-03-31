@@ -1,8 +1,7 @@
 # save-json-as-excel
 
 + save json as xls or csv in browser , and download . (在浏览器端将 json 转成 xls/csv 并下载)
-+ 如果浏览器支持 `navigator.msSaveBlob` 或 `URL.createObjectURL` ,将构造一个 Blob 并下载，否则将下载Base64编码数据
-
++ If the browser supports `navigator.msSaveBlob` or `URL.createObjectURL`, a Blob will be constructed and downloaded, otherwise Base64 encoded data will be downloaded. （如果浏览器支持 `navigator.msSaveBlob` 或 `URL.createObjectURL` ,将构造一个 Blob 并下载，否则将下载Base64编码数据)
 
 #### Install
 
