@@ -1,26 +1,19 @@
-# JSON2EXCEL
-> ## 使用说明
-+ 用于浏览器端将json格式数据转换为 伪xls/csv 格式文件导出；
+# save-json-as-excel   
 
-> ## API
-
-+ JSON2EXCEL.exportXLS(dataSource:Array\<any\>, columns:Array<{title:string,dataIndex?:string,computed?:function}>,fileName:string)
-
-+ JSON2EXCEL.exportCSV(dataSource:Array\<any\>, columns:Array<{dataIndex?:string,computed?:function}>,fileName:string)
-
+### save json as xls or csv in browser , and download . (在浏览器端将json转成xls/csv并下载)
 
 > ## example
 ```javascript
+
   var dataSource = [{
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号'
+        name: '海绵宝宝',
+        age: 31,
+        address: '贝壳街124号'
       }, {
-        name: '胡彦祖',
-        age: 42,
+        name: '蟹老板',
+        age: 75,
         address: '西湖区湖底公园1号'
       }],
-
       columns = columns = [{
         title: '姓名',
         dataIndex: 'name'
@@ -35,15 +28,9 @@
         computed: function (item) {
           return 2017 - item.age
         }
-      }]
+      }];
 
-  JSONTOEXCEL.exportXLS(dataSource, columns, 'test.xls')
+  saveJsonAsExcel.saveAsXls(dataSource, columns, 'test.xls');
+  saveJsonAsExcel.saveAsCsv(dataSource, columns, 'test.csv');
 
-  JSONTOEXCEL.exportCSV(dataSource, columns, 'test.csv')
 ```
-
-> ## change log
-
-+ v 0.1.0
-  + feature 支持计算属性 computed；
-  + update api优化；

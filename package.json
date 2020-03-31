@@ -1,20 +1,20 @@
 {
-  "name": "json2excel",
+  "name": "save-json-as-excel",
   "version": "1.0.0",
   "description": "json to excel and download",
-  "main": "dist/json2excel.min.js",
+  "main": "dist/save-json-as-excel.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/changgeee/json2excel.git"
+    "url": "git+https://github.com/changgeee/save-json-as-excel.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/changgeee/json2excel/issues"
+    "url": "https://github.com/changgeee/save-json-as-excel/issues"
   },
-  "homepage": "https://github.com/changgeee/json2excel#readme"
+  "homepage": "https://github.com/changgeee/save-json-as-excel#readme"
 }

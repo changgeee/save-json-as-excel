@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>saveJsonAsExcel</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JSON2EXCEL</title>
-</head>
-
-<body>
-  <button id="downloadXLS">downloadXLS</button>
-  <button id="downloadCSV">downloadCSV</button>
-  <script src="../dist/json2excel.min.js"></script>
-  <script>
-    var downloadXLS = document.querySelector('#downloadXLS'),
-      downloadCSV = document.querySelector('#downloadCSV'),
-      dataSource = [{
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号'
-      }, {
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园1号'
-      }],
-
-      columns = columns = [{
-        title: '姓名',
-        dataIndex: 'name'
-      }, {
-        title: '年龄',
-        dataIndex: 'age',
-      }, {
-        title: '住址',
-        dataIndex: 'address'
-      }, {
-        title: '出生年份',
-        computed: function (item) {
-          return 2017 - item.age
-        }
-      }]
-    downloadXLS.addEventListener('click', function () {
-      JSON2EXCEL.exportXLS(dataSource, columns, 'test.xls')
-    })
-    downloadCSV.addEventListener('click', function () {
-      JSON2EXCEL.exportCSV(dataSource, columns, 'test.csv')
-    })
-  </script>
-</body>
+  <body>
+    <button id="saveAsXls">sava as xls</button>
+    <button id="saveAsCsv">save as csv</button>
+    <script src="../dist/save-json-as-excel.min.js"></script>
+    <script>
+      var saveAsXls = document.querySelector('#saveAsXls'),
+        saveAsCsv = document.querySelector('#saveAsCsv'),
+        dataSource = [
+          {
+            name: '海绵宝宝',
+            age: 31,
+            address: '贝壳街124号',
+          },
+          {
+            name: '蟹老板',
+            age: 75,
+            address: '西湖区湖底公园1号',
+          },
+        ],
+        columns = (columns = [
+          {
+            title: '姓名',
+            dataIndex: 'name',
+          },
+          {
+            title: '年龄',
+            dataIndex: 'age',
+          },
+          {
+            title: '住址',
+            dataIndex: 'address',
+          },
+          {
+            title: '出生年份',
+            computed: function(item) {
+              return 2017 - item.age;
+            },
+          },
+        ]),
+        columns = (columns = [
+          {
+            title: '姓名',
+            dataIndex: 'name',
+          },
+          {
+            title: '年龄',
+            dataIndex: 'age',
+          },
+          {
+            title: '住址',
+            dataIndex: 'address',
+          },
+          {
+            title: '出生年份',
+            computed: function(item) {
+              return 2017 - item.age;
+            },
+          },
+        ]);
+      saveAsXls.addEventListener('click', function() {
+        saveJsonAsExcel.saveAsXls(dataSource, columns, 'test.xls');
+      });
+      saveAsCsv.addEventListener('click', function() {
+        saveJsonAsExcel.saveAsCsv(dataSource, columns, 'test.csv');
+      });
+    </script>
+  </body>
 </html>
